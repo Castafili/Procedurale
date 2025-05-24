@@ -6,12 +6,12 @@
 void verifica_errori() {
     //verifica se i puntatori sono inizializzati correttamente
     if (pFirst == NULL) {
-        printf("DEBUG: Mappa non impostata correttamente\n");
+        printf("Errore, Mappa non impostata correttamente!\n");
         return;
     }
 
     if (n_giocatori <= 0) {
-        printf("DEBUG: Giocatori non impostati\n");
+        printf("Errore, Giocatori non impostati!\n");
         return;
     }
     printf("Mappa e giocatori controllati\n");
@@ -19,6 +19,7 @@ void verifica_errori() {
 
 
 int main() {
+
 int choice;
 
 do {
@@ -59,7 +60,7 @@ do {
         default:
             printf("Errore, Scelta non valida!\n");
     }
-}while (choice !=3);
+} while (choice !=3);
 
 return 0;
 }
