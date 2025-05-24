@@ -42,7 +42,6 @@ static int conta_stanze();
 //Funzioni per gioco
 void avanza();
 void combatti (struct Giocatore* giocatore, Nemico);
-
 void stampa_giocatore();
 void stampa_zona();
 void prendi_tesoro();
@@ -85,7 +84,6 @@ void scappa(struct Giocatore* giocatore) {
 
 
 void avanza (struct Giocatore* giocatore) {
-
 
     if (!giocatore || !giocatore->posizione) {
         printf("Errore: il giocatore o la posizione non e valida.\n");
@@ -176,12 +174,6 @@ void avanza (struct Giocatore* giocatore) {
         //apparizione nemico 25%
         int probabilita = rand() % 100;
         if (probabilita < 25) {
-            if(!prossima_stanza->stanza_destra && !prossima_stanza->stanza_sinistra &&
-            !prossima_stanza->stanza_sopra && !prossima_stanza->stanza_sotto)
-            printf("Jaffar appare nella stanza!");
-            nemico_attuale = jaffar;
-        }
-        else {
             int tipo_nemico = rand() % 100;
             if (tipo_nemico < 60) {
                 printf("Appare uno scheletro!\n");
@@ -472,8 +464,8 @@ static void genera_random() {
     struct Stanza* temp = pFirst;
     int test = !pFirst;
     //Cancellazione mappa esistente
-    printf("DEBUG pFIRST %p\n", (void*)pFirst);
-    printf("DEBUG !pFIRST %d\n", test);
+        // printf("DEBUG pFIRST %p\n", (void*)pFirst);
+        // printf("DEBUG !pFIRST %d\n", test);
     while (pFirst) {
         canc_stanza();
     }
@@ -645,13 +637,13 @@ void gioca() {
 
         switch (scelta) {
             case 1:
-                printf("DEBUG: Chiamata alla funzione avanza()\n");
+                    //printf("DEBUG: Chiamata alla funzione avanza()\n");
                 avanza(giocatore_corrente);
                 break;
             
             case 2:
                 if (nemico_attuale != nessun_nemico) {
-                    printf("DEBUG: Chiamata alla funzione combatti()\n");
+                        //printf("DEBUG: Chiamata alla funzione combatti()\n");
                     combatti(giocatore_corrente, nemico_attuale);
                     nemico_attuale = nessun_nemico; // Reset dopo combattimento
                 } else {
@@ -660,32 +652,32 @@ void gioca() {
                 break;
             
             case 3:
-                printf("DEBUG: Chiamata alla funzione scappa()\n");
+                    //printf("DEBUG: Chiamata alla funzione scappa()\n");
                 scappa(giocatore_corrente);
                 break;
             
             case 4:
-                printf("DEBUG: Chiamata alla funzione stampa_giocatore()\n");
+                    //printf("DEBUG: Chiamata alla funzione stampa_giocatore()\n");
                 stampa_giocatore(giocatore_corrente);
                 break;
             
             case 5:
-                printf("DEBUG: Chiamata alla funzione stampa_zona()\n");
+                    //printf("DEBUG: Chiamata alla funzione stampa_zona()\n");
                 stampa_zona(giocatore_corrente->posizione);
                 break;
              
             case 6:
-                printf("DEBUG: Chiamata alla funzione prendi_tesoro()\n");
+                    //printf("DEBUG: Chiamata alla funzione prendi_tesoro()\n");
                 prendi_tesoro(giocatore_corrente);
                 break;
             
             case 7:
-                printf("DEBUG: Chiamata alla funzione cerca_porta_segreta()\n");
+                    //printf("DEBUG: Chiamata alla funzione cerca_porta_segreta()\n");
                 cerca_porta_segreta(giocatore_corrente);
                 break;
             
             case 8:
-                printf("DEBUG: Chiamata alla funzione passa()\n");
+                    //printf("DEBUG: Chiamata alla funzione passa()\n");
                 passa();
                 break;
 
